@@ -106,3 +106,84 @@ print(worst_3_communes)
 # plt.grid(axis='y')
 # plt.legend(title='')
 # plt.show()
+
+# Exercice 3: Corrélation entre infrastrucutres et fréquentation :
+
+# Corrélation entre le nombre d'écrans et les entrées de 2022:
+screen = df_cinemas['écrans'].tolist()
+entrees_2022 = df_cinemas['entrées 2022'].tolist()
+total_value_screen = len(screen)
+
+sum_screen = sum(screen)
+sum_entrees_2022 = sum(entrees_2022)
+sum_products = sum(x * y for x, y in zip(screen, entrees_2022))
+sum_squares_screen = sum(x ** 2 for x in screen)
+sum_squares_entrees_2022 = sum(y ** 2 for y in entrees_2022)
+
+numerator = (total_value_screen * sum_products) - (sum_screen * sum_entrees_2022)
+denominator = ((total_value_screen * sum_squares_screen - (sum_squares_screen ** 2)) * (total_value_screen * sum_entrees_2022 - (sum_entrees_2022 ** 2))) ** 0.5
+
+if denominator != 0:
+    correlation_screen_entrees_2022 = numerator / denominator
+else:
+    correlation_screen_entrees_2022 = 0
+
+print("Corrélation entre le nombre d'écrans et les entrées de 2022:")
+print(correlation_screen_entrees_2022)
+
+# Corrélation entre le nombre de fauteuils et les entrées de 2022:
+
+fauteuils = df_cinemas['fauteuils'].tolist()
+entrees_2022 = df_cinemas['entrées 2022'].tolist()
+total_value_fauteuils = len(fauteuils)
+
+sum_fauteuils = sum(fauteuils)
+sum_entrees_2022 = sum(entrees_2022)
+sum_products = sum(x * y for x, y in zip(fauteuils, entrees_2022))
+sum_squares_fauteuils = sum(x ** 2 for x in fauteuils)
+sum_squares_entrees_2022 = sum(y ** 2 for y in entrees_2022)
+
+numerator = (total_value_fauteuils * sum_products) - (sum_fauteuils * sum_entrees_2022)
+denominator = ((total_value_fauteuils * sum_squares_fauteuils - (sum_squares_fauteuils ** 2)) * (total_value_fauteuils * sum_entrees_2022 - (sum_entrees_2022 ** 2))) ** 0.5
+
+if denominator != 0:
+    correlation_fauteuils_entrees_2022 = numerator / denominator
+else:
+    correlation_fauteuils_entrees_2022 = 0
+
+print("Corrélation entre le nombre de fauteuils et les entrées de 2022:")
+print(correlation_fauteuils_entrees_2022)
+
+# Nuage de points entre le nombre d'écrans et les entrées de 2022:
+
+X_screens = df_cinemas['écrans']
+Y_entries = df_cinemas['entrées 2022']
+
+m_screens = ((X_screens * Y_entries).mean() - X_screens.mean() * Y_entries.mean()) / ((X_screens ** 2).mean() - (X_screens.mean() ** 2))
+b_screens = Y_entries.mean() - m_screens * X_screens.mean()
+
+plt.scatter(X_screens, Y_entries, color='blue', label='Données')
+plt.plot(X_screens, m_screens * X_screens + b_screens, color='red', label='Régression linéaire')
+plt.title("Relation entre le nombre d'écrans et les entrées annuelles (2022)")
+plt.xlabel("Nombre d'écrans")
+plt.ylabel('Entrées annuelles')
+plt.legend()
+plt.grid()
+plt.show()
+
+# Nuage de points entre le nombre de fauteuils et les entrées de 2022:
+
+X_fauteuil = df_cinemas['fauteuils']
+Y_entries = df_cinemas['entrées 2022']
+
+m_screens = ((X_fauteuil * Y_entries).mean() - X_fauteuil.mean() * Y_entries.mean()) / ((X_fauteuil ** 2).mean() - (X_fauteuil.mean() ** 2))
+b_screens = Y_entries.mean() - m_screens * X_fauteuil.mean()
+
+plt.scatter(X_fauteuil, Y_entries, color='blue', label='Données')
+plt.plot(X_fauteuil, m_screens * X_fauteuil + b_screens, color='red', label='Régression linéaire')
+plt.title("Relation entre le nombre de fauteuils et les entrées annuelles (2022)")
+plt.xlabel('Nombre de fauteuils')
+plt.ylabel('Entrées annuelles')
+plt.legend()
+plt.grid()
+plt.show()
