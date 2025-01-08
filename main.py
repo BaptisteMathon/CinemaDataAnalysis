@@ -1,5 +1,10 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
+
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 # Exercice 1: Nettoyage et exploration des données :
 # Nettoyage :
@@ -162,14 +167,14 @@ Y_entries = df_cinemas['entrées 2022']
 m_screens = ((X_screens * Y_entries).mean() - X_screens.mean() * Y_entries.mean()) / ((X_screens ** 2).mean() - (X_screens.mean() ** 2))
 b_screens = Y_entries.mean() - m_screens * X_screens.mean()
 
-plt.scatter(X_screens, Y_entries, color='blue', label='Données')
-plt.plot(X_screens, m_screens * X_screens + b_screens, color='red', label='Régression linéaire')
-plt.title("Relation entre le nombre d'écrans et les entrées annuelles (2022)")
-plt.xlabel("Nombre d'écrans")
-plt.ylabel('Entrées annuelles')
-plt.legend()
-plt.grid()
-plt.show()
+# plt.scatter(X_screens, Y_entries, color='blue', label='Données')
+# plt.plot(X_screens, m_screens * X_screens + b_screens, color='red', label='Régression linéaire')
+# plt.title("Relation entre le nombre d'écrans et les entrées annuelles (2022)")
+# plt.xlabel("Nombre d'écrans")
+# plt.ylabel('Entrées annuelles')
+# plt.legend()
+# plt.grid()
+# plt.show()
 
 # Nuage de points entre le nombre de fauteuils et les entrées de 2022:
 
@@ -179,11 +184,51 @@ Y_entries = df_cinemas['entrées 2022']
 m_screens = ((X_fauteuil * Y_entries).mean() - X_fauteuil.mean() * Y_entries.mean()) / ((X_fauteuil ** 2).mean() - (X_fauteuil.mean() ** 2))
 b_screens = Y_entries.mean() - m_screens * X_fauteuil.mean()
 
-plt.scatter(X_fauteuil, Y_entries, color='blue', label='Données')
-plt.plot(X_fauteuil, m_screens * X_fauteuil + b_screens, color='red', label='Régression linéaire')
-plt.title("Relation entre le nombre de fauteuils et les entrées annuelles (2022)")
-plt.xlabel('Nombre de fauteuils')
-plt.ylabel('Entrées annuelles')
-plt.legend()
-plt.grid()
-plt.show()
+# plt.scatter(X_fauteuil, Y_entries, color='blue', label='Données')
+# plt.plot(X_fauteuil, m_screens * X_fauteuil + b_screens, color='red', label='Régression linéaire')
+# plt.title("Relation entre le nombre de fauteuils et les entrées annuelles (2022)")
+# plt.xlabel('Nombre de fauteuils')
+# plt.ylabel('Entrées annuelles')
+# plt.legend()
+# plt.grid()
+# plt.show()
+
+
+# Exercice 4: Modèle prédictif des entrées annuelles:
+
+# Division des données de 2021 et 2022 en deux sous-ensembles:
+
+# variables_explicatives_2021 = df_cinemas[['écrans', 'fauteuils', 'population de la commune']]
+# variables_cible_2021 = df_cinemas['entrées 2021']
+# print('Variables explicatives 2021 : \n', variables_explicatives_2021.head())
+# print('Variable cible 2021 : \n', variables_cible_2021.head())
+
+variables_explicatives_2022 = df_cinemas[['écrans', 'fauteuils', 'population de la commune']]
+variables_cible_2022 = df_cinemas['entrées 2022']
+print('Variables explicatives 2022 : \n', variables_explicatives_2022.head())
+print('Variable cible 2022 : \n', variables_cible_2022.head())
+
+
+#---------
+
+X = variables_explicatives_2022.values
+Y = variables_cible_2022.values
+
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.20, random_state=1)
+
+regressor = LinearRegression()
+regressor.fit(X_train, Y_train)
+
+print('Coefficient des variables explicatives : ', regressor.coef_)
+print('Intercept : ', regressor.intercept_)
+
+Y_pred = regressor.predict(X_test)
+
+comparison_df = pd.DataFrame({'Réel': Y_test, 'Prédit': Y_pred})
+print('Données réelles VS données prédites : \n', comparison_df)
+
+print('MAE : ', mean_absolute_error(Y_test, Y_pred))
+print('MSE : ', mean_squared_error(Y_test, Y_pred))
+print('RMSE : ', np.sqrt(mean_squared_error(Y_test, Y_pred)))
+r2 = r2_score(Y_test, Y_pred)
+print('Model Score : ', r2)
