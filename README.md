@@ -13,8 +13,11 @@
 
 ### Corrélation entre le nombre d'écrans et les entrées de 2022: 0.20610167847673563
 ### Corrélation entre le nombre de fauteuils et les entrées de 2022: 0.0009999530364899361
+### Corrélation entre le nombre d'écrans et les entrées de 2022: 0.20610167847673563
+### Corrélation entre le nombre de fauteuils et les entrées de 2022: 0.0009999530364899361
 
 ### Nuage de points entre le nombre d'écrans et les entrées de 2022:
+![image](https://github.com/user-attachments/assets/ec4e0ce8-e373-4d55-87d5-cd26c000b801)
 ![image](https://github.com/user-attachments/assets/ec4e0ce8-e373-4d55-87d5-cd26c000b801)
 
 ### Nuage de points entre le nombre de fauteuils et les entrées de 2022:
