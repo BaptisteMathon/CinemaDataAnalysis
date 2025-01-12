@@ -5,18 +5,20 @@
 
 Avant d'éxecuter le code présent dans le main.py, il va falloir suivre les étapes suivantes:
 
-1. Ce rendre dans le répertoire du fichier main.py depuis le terminal.
-2. installer les différentes dépendance avec la commande suivante:
+1. clone le répo avec la commande suivante : 
+  *git clone https://github.com/BaptisteMathon/CinemaDataAnalysis.git*
+2. Ce rendre dans le répertoire du fichier main.py depuis le terminal.
+3. installer les différentes dépendance avec la commande suivante:
   *pip install pandas numpy matplotlib scikit-learn*
-3. Exécuter le code avec la commande suivante:
+4. Exécuter le code avec la commande suivante:
   *py main.py*
 
-3.1. Si jamais il est nécessaire de créer un environnement pour éxecuter le code, faire les commandes suivantes:
+4.1. Si jamais il est nécessaire de créer un environnement pour éxecuter le code, faire les commandes suivantes:
   *python3 -m ven venv*
   Windows: *venv\Scripts\Activate.ps1*
   Mac / Linux: *source ./venv/bin/activate*
 
-4. Maintenant il ne reste plus qu'à choisir l'exercice souhaité :) 
+5. Maintenant il ne reste plus qu'à choisir l'exercice souhaité :) 
 
 
 # Réponse au différentes questions du projet: 
