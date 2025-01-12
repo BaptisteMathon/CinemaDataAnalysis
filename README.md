@@ -14,8 +14,11 @@ Avant d'éxecuter le code présent dans le main.py, il va falloir suivre les ét
   *py main.py*
 
 4.1. Si jamais il est nécessaire de créer un environnement pour éxecuter le code, faire les commandes suivantes:
+  
   *python3 -m ven venv*
+
   Windows: *venv\Scripts\Activate.ps1*
+  
   Mac / Linux: *source ./venv/bin/activate*
 
 5. Maintenant il ne reste plus qu'à choisir l'exercice souhaité :) 
