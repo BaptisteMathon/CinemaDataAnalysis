@@ -39,7 +39,8 @@ Avant d'éxecuter le code présent dans le main.py, il va falloir suivre les ét
 ### Nuage de points entre le nombre de fauteuils et les entrées de 2022:
 ![image](https://github.com/user-attachments/assets/60b2338f-cbdc-4bdd-83c4-365728e92555)
 
-Selon moi, la variable ayant le plus d'impact sur les entrées annuelles est le nombre d'écrans.
+Selon moi, la variable ayant le plus d'impact sur les entrées annuelles est:  le nombre d'écrans.
+
 Les deux graphiques se ressemble énormément: 
   - Au plus il y a de fauteuil, au plus le nombre d'entrées est élevé
   - Au plus il y a d'écrans, au plus le nombre d'entrées est élevé
@@ -59,14 +60,19 @@ Cependant, on ne peut pas se fier à 100% à se model prédictif, car son Model 
 
 ## Question exercice 5: Recommandations statégiques:
 
-* Les calculs sont présent dans le fichier main.py (partie Exercice 5):  *
+*Les calculs sont présent dans le fichier main.py (partie Exercice 5):*
 
 Comme expliqué dans les exercices ci-dessus, ajouter un nouvel écran permettrait d'augmenter les entrées du cinéma.
-Le prix moyen d'un écran de cinéma est de 10'000€, et le prix moyen d'un fauteuil de cinéma est de 200€.
+
+En sachant que le prix moyen d'un écran de cinéma est de 10'000€, et le prix moyen d'un fauteuil de cinéma est de 200€.
+
 Acheter 50 nouveaux fauteuils reviendrai à achter un nouvel écran de cinéma.
 
 Si l'on calcul le nombre d'entrée potentiel de la commune de 20'000 habitants, avec 2 écrans et 120 fauteuils. On aurait une estimation d'un nombre d'entrées de : 35'541
+
 Si maintenant l'on calcul le nombre d'entrée potentiel mais avec 3 écrans et 120 fauteuils, on obtient une estimation du nombre d'entrée à : 77'024. Soit une augmentation d'environ 40'000 entrées.
+
 Et maintenant le nombre d'entrée potentiel pour un cinéma avec 2 écrans et 170 fauteuils et de : 37'083. Soit une légère augmentation d'environ 2'000 entrées.
+
 
 Il est donc plus intéressant d'augmenter le nombre d'écrans au nombre de fauteuils pour cette commune de 20'000 habitants.
