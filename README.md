@@ -5,7 +5,7 @@
 
 Avant d'éxecuter le code présent dans le main.py, il va falloir suivre les étapes suivantes:
 
-1. clone le répo avec la commande suivante : 
+1. cloner le répo avec la commande suivante : 
   ```git clone https://github.com/BaptisteMathon/CinemaDataAnalysis.git```
 2. Se rendre dans le répertoire du fichier main.py depuis le terminal.
 3. installer les différentes dépendance avec la commande suivante:
